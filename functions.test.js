@@ -4,6 +4,23 @@ const functions = require('./functions')
 
 // toBe checks for a specific value. toBe checks for primitive type. 4=4 string=string
 // object/array are reference type. stored in different memory. need to use toEqual
+const nameCheck=()=>console.log('Checking Name...')
+
+describe('Checking Names',()=>{
+    beforeEach(()=>nameCheck());
+
+    test('User is Jeff',()=>{
+        const user = 'Jeff';
+        expect(user).toBe('Jeff')
+    })
+
+    test('User is Karen',()=>{
+        const user = 'Karen';
+        expect(user).toBe('Karen')
+    })
+})
+
+
 
 
 test('Adds 2+2 to equal 4', ()=>{
@@ -77,6 +94,13 @@ test('There is no I in team', ()=>{
 test('reverseString function exists',()=>{
     expect(functions.reverseString).toBeDefined();
 })
+
+//or
+test('reverseString function exists 2nd way',()=>{
+    expect(typeof functions.reverseString).toEqual('function');
+})
+
+
 
 test('String reverse', ()=>{
     expect(functions.reverseString('hello')).toBe('olleh')
