@@ -50,3 +50,34 @@ test('should be under 1600', ()=>{
 test('There is no I in team', ()=>{
     expect('team').not.toMatch(/I/i)
 })
+
+//Arrays toContain-checks array to see if admin is in array
+    test('Admin should be in usernames',()=>{
+        usernames=['john', 'karen', 'admin'];
+        expect(usernames).toContain('admin')
+    })
+
+//API test asych data
+    // test('User fetched name should be Leanne Graham', ()=>{
+    //     expect.assertions(1);
+    //     return functions.fetchUser().then(data=>{
+    //         expect(data.name).toEqual('Leanne Graham')
+    //     })
+    // })
+
+//async await
+    test('User fetched name should be Leanne Graham', async ()=>{
+       expect.assertions(1);
+       const data =await functions.fetchUser();
+       expect(data.name).toEqual('Leanne Graham')
+        
+    })
+
+//check if function is defined
+test('reverseString function exists',()=>{
+    expect(functions.reverseString).toBeDefined();
+})
+
+test('String reverse', ()=>{
+    expect(functions.reverseString('hello')).toBe('olleh')
+})
